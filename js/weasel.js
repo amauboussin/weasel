@@ -1,12 +1,38 @@
-
+//simulation params
 var target = "METHINKS IT IS LIKE A WEASEL";
 var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 var mutation_rate = 0.01;
-var n_organisms = 10;
+var divine_intervention_rate = 0.0;
+var n_organisms = 100;
 var sexual_selection_factor = 0.0;
-var survival_rate = 0.5;
+var survival_rate = 1.0;
+var n_iterations = 10;
+
+
+//application params
+var width = 1600,
+    height = 800;
+
+var xpad = 200;
+var ypad = 100;
+
+var col_height = 15;
+var per_row = 3;
+var delay = 50;
+var redaw_every = 1;
+
+var row_width = width / per_row;
+
 
 var strings = new Array(n_organisms).fill().map(random_string);
+
+
+function fleeming_jenkins(){
+    mutation_rate = 0.01;
+    n_organisms = 100;
+    sexual_selection_factor = 0.0;
+    survival_rate = 1.0;
+}
 
 function random_char(){
     return possible.charAt(Math.floor(Math.random() * possible.length));
@@ -74,33 +100,27 @@ function spawn_new_generation(){
 }
 
 function main(){
-
-    function do_generation(iteration){
-        console.log(iteration)
+    var i = 0;
+    function do_generation(){
         strings = spawn_new_generation();
-        if (iteration % 10 === 0){
+        if (i % redaw_every === 0){
             console.log(strings[0], fitness(strings[0]));
             draw_organisms(strings);
         }
+        i++;
+        if (i < n_iterations)
+            setTimeout(do_generation, delay / redaw_every);
     }
-
-    for (var i = 0; i < 100; i++){
-        setTimeout(function(){do_generation(i);}, 500 * i);
-    }
+    do_generation();
 }
-
-var width = 2000,
-    height = 800;
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(32," + (height / 2) + ")");
+    .attr("transform", "translate(" + xpad + "," + ypad + ")");
 
-var row_width = 400;
-var col_height = 15;
-var per_row = 5;
+
 var text;
 
 function get_x_pos(d, i){
