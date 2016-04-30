@@ -1,12 +1,12 @@
 //simulation params
 var target = "METHINKS IT IS LIKE A WEASEL";
 var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-var mutation_rate = 0.01;
+var mutation_rate = 0.1;
 var divine_intervention_rate = 0.0;
 var n_organisms = 100;
 var sexual_selection_factor = 0.0;
-var survival_rate = 1.0;
-var n_iterations = 10;
+var survival_rate = 0.1;
+var n_iterations = 100;
 
 
 //application params
@@ -18,7 +18,7 @@ var y_pad = 100;
 
 var col_height = 15;
 var per_row = 3;
-var delay = 50;
+var delay = 500;
 var redaw_every = 1;
 
 var row_width = width / per_row;
@@ -130,26 +130,56 @@ function get_y_pos(d, i){
     return  (Math.floor(i/per_row)) * col_height;
 }
 
+
+function init_organism(d, i){
+    var this_text = d3.select(this);
+    for (var j = 0; j < target.length; j++){
+        this_text.append("svg:tspan")
+        .style("fill", "blue")
+        .text(function(){
+            return char_map(d[i]);
+        });
+    }
+}
+
+function char_map(c){
+    return (c === ' ') ? '\u00A0' : c;
+}
+
+function update_organism(d, i){
+    var this_text = d3.select(this);
+    this_text.selectAll("tspan")
+        .text(function(_, j){
+            return char_map(d[j]);
+        })
+        .style("fill", function(_, j){
+            return (target.charAt(j) === char_map(d[j])) ? 'green' : 'red';
+        });
+}
+
 function draw_organisms(organisms){
 
     text = svg.selectAll("text")
       .data(organisms, function(d, i) {return i;});
 
-    text.attr("class", "update")
-    .transition()
-      .duration(750)
-      .attr("x", get_x_pos)
-      .text(function(d){ return d;});
-    text.enter().append("text")
+    text.enter().append("svg:text")
       .attr("class", "enter")
       .attr("dy", ".35em")
       .attr("x", get_x_pos)
       .attr("y",get_y_pos)
-      // .style("fill-opacity", 1e-6)
-      .text(function(d) { return d; })
+      .each(init_organism)
+      // .style("fill-opacity", 0)
     .transition()
       .duration(750)
       .style("fill-opacity", 1);
+
+    text.attr("class", "update")
+      .each(update_organism);
+
+      
+      // .style("fill-opacity", 1e-6)
+      // .text(function(d) { return d; })
+
 
     // text.exit()
     //   .attr("class", "exit")
