@@ -13,8 +13,8 @@ var n_iterations = 10;
 var width = 1600,
     height = 800;
 
-var xpad = 200;
-var ypad = 100;
+var x_pad = 200;
+var y_pad = 100;
 
 var col_height = 15;
 var per_row = 3;
@@ -118,8 +118,7 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + xpad + "," + ypad + ")");
-
+    .attr("transform", "translate(" + x_pad + "," + y_pad + ")");
 
 var text;
 
@@ -132,6 +131,7 @@ function get_y_pos(d, i){
 }
 
 function draw_organisms(organisms){
+
     text = svg.selectAll("text")
       .data(organisms, function(d, i) {return i;});
 
