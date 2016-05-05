@@ -5,14 +5,264 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Dawkin's Weasel</title>
 
     <!-- Bootstrap -->
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+      body{
+        line-height: 1.5;
+        font-size: 15px;
+      }
+      .blockquote{
+        border-left: 5px solid #A7A7A7;
+        background: aliceblue;
+      }
+      .blockquote-footer{
+        color: #666666;
+      }
+      .centered-text{
+        text-align: center;
+      }
+      .organism{
+        font-size: 16px;
+      }
+      .subtitle{
+        margin-top: -15px;
+        margin-bottom: 30px;
+      }
+      .stats-row{
+        margin-top: 50px;
+        background: lightgrey;
+      }
+      .stat{
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+
   </head>
   <body>
-    <h1>Weasel</h1>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <div><h3 class="centered-text">Dawkin's Weasel Program</h3></div>
+        </br>
+        <h4 class="subtitle centered-text">Simulating Historical Theories of Evolutionary Thought</h4>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <blockquote class="blockquote">
+            <p class="m-b-0">I don't know who it was first pointed out that, given enough time, a monkey bashing away at random on a typewriter could produce all the works of Shakespeare. The operative phrase is, of course, given enough time. Let us limit the task facing our monkey somewhat. Suppose that he has to produce, not the complete works of Shakespeare but just the short sentence 'Methinks it is like a weasel', and we shall make it relatively easy by giving him a typewriter with a restricted keyboard, one with just the 26 (capital) letters, and a space bar. How long will he take to write this one little sentence?</p>
+            <footer class="blockquote-footer">Richard Dawkins in
+              <cite title="Source Title">The Blind Watchmaker (1986)</cite>
+            </footer>
+          </blockquote>
+          <p> Some more explanation here </p>
+        </div>
+      </div>
+
+
+      <div class="row-fluid">
+        <div class="col-lg-3 col-lg-offset-1 col-xs-12">
+          <div class="well bs-component">
+            <form  id="mode-select" class="form-horizontal">
+              <fieldset>
+                <legend>Modes</legend>
+                <div class="form-group">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="mode" id="darwin" value="darwin" checked>
+                      Darwin (Evolution by Natural Selection)
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="mode" id="random" value="random">
+                      Monkey at a Typewriter (Complete Randomness)
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="mode" id="owen" value="owen">
+                      Richard Owen/Louis Agassiz (Intelligent Design) 
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="mode" id="asa" value="asa">
+                      Asa Gray
+                    </label>
+                  </div>
+
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="mode" id="kelvin" value="kelvin">
+                      Lord Kelvin
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="mode" id="irreducible" value="irreducible">
+                      Modern Creationism (Irreducible Complexity)
+                    </label>
+                  </div>
+
+
+                </div>
+
+              </fieldset>
+            </form>
+
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-lg-7">
+
+          <div class="well bs-component">
+              <form id="set-params" class="form-horizontal">
+                <fieldset>
+                  <legend>Setup</legend>
+<!--                   <div class="form-group">
+                    <label for="inputEmail" class="col-xs-3 control-label">Target String</label>
+                    <div class="col-md-6 col-xs-12">
+                      <input type="text" class="form-control" id="inputEmail" value="METHINKS IT IS A WEASEL">
+                    </div>
+                  </div> -->
+                  <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Run time (generations)</label>
+                    <div class="col-md-6 col-xs-12">
+                      <select class="form-control" id="iterations">
+                        <option>10</option>
+                        <option>50</option>
+                        <option selected="selected">100</option>
+                        <option>250</option>
+                        <option>500</option>
+                        <option>1000</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Number of "Organisms"</label>
+                    <div class="col-md-6 col-xs-12">
+                      <select class="form-control" id="organisms">
+                        <option>10</option>
+                        <option>50</option>
+                        <option selected="selected">100</option>
+                        <option>200</option>
+                        <option>300</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Birth Rate</label>
+                    <div class="col-md-6 col-xs-12">
+                      <select class="form-control" id="birth-rate">
+                        <option selected="selected">2</option>
+                        <option>3</option>
+                        <option>5</option>
+                        <option>10</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Mutation Rate</label>
+                    <div class="col-md-6 col-xs-12">
+                      <select class="form-control" id="mutation-rate">
+                        <option>0%</option>
+                        <option selected="selected">1%</option>
+                        <option>5%</option>
+                        <option>10%</option>
+                        <option>25%</option>
+                        <option>50%</option>
+                        <option>100%</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Divine Intervention Rate</label>
+                    <div class="col-md-6 col-xs-12">
+                      <select class="form-control" id="intervention-rate">
+                        <option selected="selected">0%</option>
+                        <option>1%</option>
+                        <option>5%</option>
+                        <option>10%</option>
+                        <option>25%</option>
+                        <option>50%</option>
+                        <option>100%</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-xs-12 col-lg-9 col-lg-offset-3">
+                      <button id="run-button" class="btn btn-primary">Run Simulation</button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+          </div>
+
+        </div>
+      </div> <!-- end row -->
+
+
+    </div>
+    <div class="row-fluid">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="well bs-component">
+          <legend id="explanation-title"></legend>
+          <p id="explanation-text"></p>
+        </div>
+      </div>
+    </div>
+      <div class="row-fluid">
+    
+      <div class="col-xs-4 col-lg-2 col-lg-offset-1">
+        <h5 class="centered-text">Generations</h5></br>
+        <p id="generations" class="centered-text stat" style="margin-top: -24px;">0</p>
+
+        <h5 class="centered-text">Favorable Mutations</h5>
+        <p id="favorable" class="centered-text stat">0</p>
+
+
+      </div>
+      <div class="col-xs-4 col-lg-2 col-lg-offset-1">
+        <h5 class="centered-text">Births</h5>
+        <p id="births" class="centered-text stat">0</p>
+        <h5 class="centered-text">Unfavorable Mutations</h5>
+        <p id="unfavorable" class="centered-text stat">0</p>
+
+      </div>
+      <div class="col-xs-4 col-lg-2 col-lg-offset-1">
+        <h5 class="centered-text">Deaths</h5>
+        <p id="deaths" class="centered-text stat">0</p>
+
+        <h5 class="centered-text">Divine Interventions</h5>
+        <p id="interventions" class="centered-text stat">0</p>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="col-xs-12"><div id="main-vis"></div></div>
+    </div>
+
+    <div class="row-fluid">
+
+        <div class="col-xs-12">
+          <blockquote class="blockquote">
+            <p class="m-b-0">Although the monkey/Shakespeare model is useful for explaining the distinction between single-step selection and cumulative selection, it is misleading in important ways. One of these is that, in each generation of selective 'breeding', the mutant 'progeny' phrases were judged according to the criterion of resemblance to a distant ideal target, the phrase METHINKS IT IS LIKE A WEASEL. Life isn't like that. Evolution has no long-term goal. There is no long-distance target, no final perfection to serve as a criterion for selection, although human vanity cherishes the absurd notion that our species is the final goal of evolution. In real life, the criterion for selection is always short-term, either simple survival or, more generally, reproductive success.</p>
+          </blockquote>
+          <p> Some more explanation here </p>
+        </div>
+    </div>
+
+    </div>  <!-- end container -->
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
