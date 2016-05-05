@@ -61,7 +61,8 @@
               <cite title="Source Title">The Blind Watchmaker (1986)</cite>
             </footer>
           </blockquote>
-          <p> Some more explanation here </p>
+          <p> Below is an implementation of Dawkin's Weasel program. The program begins by generating a number of random character sequences, or “organisms”. Next, each “organisms” pairs up with a randomly selected partner and “mates” with it. In this step, each character in the child organism has a 50% of being selected from its parent and a 50% chance of being selected from its second parent. The last step in determining the child character sequence is mutation. Each character in the child organism has a 1% chance (this is the default value, but it can be changed) of mutating into a random character.</p>
+          <p>Two children are created for each “organism” (this value can also be changed by modifying the “birth rate” parameter). After all the offspring sequences have been created, natural selection occurs. Fitness is measured according to a simple function: the number of characters in the sequence that match up with the target sequence “METHINKS IT IS LIKE A WEASEL”. For example, the sequence “MMTHINKK IT IS LIKE A WEASEE” would have a fitness score of 25 because it has 25 out of 28 characters in common with the target sequence. The number of organisms is kept constant between generations by selecting those that are the most fit (the rest “die”). So if the population contains 100 organisms and the birth rate is set to 2, the first reproductive step of the simulation will produce 200 child organisms and the 100 most fit from those 200 will survive to the next generation. The new generation will then pair up, mate, etc. continuing the cycle. </p>
         </div>
       </div>
 
@@ -76,19 +77,19 @@
                   <div class="radio">
                     <label>
                       <input type="radio" name="mode" id="darwin" value="darwin" checked>
-                      Darwin (Evolution by Natural Selection)
+                      Darwin
                     </label>
                   </div>
                   <div class="radio">
                     <label>
                       <input type="radio" name="mode" id="random" value="random">
-                      Monkey at a Typewriter (Complete Randomness)
+                      Monkey at a Typewriter
                     </label>
                   </div>
                   <div class="radio">
                     <label>
                       <input type="radio" name="mode" id="owen" value="owen">
-                      Richard Owen/Louis Agassiz (Intelligent Design) 
+                      Louis Agassiz
                     </label>
                   </div>
                   <div class="radio">
@@ -107,7 +108,7 @@
                   <div class="radio">
                     <label>
                       <input type="radio" name="mode" id="irreducible" value="irreducible">
-                      Modern Creationism (Irreducible Complexity)
+                      Modern Creationism
                     </label>
                   </div>
 
@@ -249,16 +250,6 @@
     </div>
     <div class="row-fluid">
       <div class="col-xs-12"><div id="main-vis"></div></div>
-    </div>
-
-    <div class="row-fluid">
-
-        <div class="col-xs-12">
-          <blockquote class="blockquote">
-            <p class="m-b-0">Although the monkey/Shakespeare model is useful for explaining the distinction between single-step selection and cumulative selection, it is misleading in important ways. One of these is that, in each generation of selective 'breeding', the mutant 'progeny' phrases were judged according to the criterion of resemblance to a distant ideal target, the phrase METHINKS IT IS LIKE A WEASEL. Life isn't like that. Evolution has no long-term goal. There is no long-distance target, no final perfection to serve as a criterion for selection, although human vanity cherishes the absurd notion that our species is the final goal of evolution. In real life, the criterion for selection is always short-term, either simple survival or, more generally, reproductive success.</p>
-          </blockquote>
-          <p> Some more explanation here </p>
-        </div>
     </div>
 
     </div>  <!-- end container -->

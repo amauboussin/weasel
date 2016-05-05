@@ -12,14 +12,11 @@ var static_after = target.length;
 
 //application params
 var vis_div_id = 'main-vis';
-var width = 900,
-    height = 800;
-
-var width = document.getElementById(vis_div_id).offsetWidth,
-    height = 800;
+var width = Math.max(500, document.getElementById(vis_div_id).offsetWidth),
+    height = 1600;
 
 var x_pad = 100;
-var y_pad = 100;
+var y_pad = 30;
 
 var col_height = 20;
 var delay = 750;
@@ -319,23 +316,23 @@ var mode_params = {
 };
 
 var mode_explanations = {
-    'darwin': {'title': 'Darwinian Evolution',
-        'body': 'An explanation of Darwinian Evolution.'
+    'darwin': {'title': 'Evolution by Natural Selection',
+        'body': "This is the closest the simulation gets to the theory of evolution proposed by Charles Darwin and Alfred Russell Wallace and accepted by scientists today. There are no divine acts; the target sentence is reached by applying selective pressure to random mutations. This mode is closest to Dawkins’ original version."
     },
     'kelvin': {'title': 'Lord Kelvin: A Scientific Objection',
-        'body': 'An explanation of Darwinian Evolution.'
+        'body': 'Lord Kelvin was a British physicist who helped found the fields of energetics and thermodynamics. He was not a creationist, but had scientific objections to Darwin’s theory. His primary objection was a matter of timing: he estimated (based on his geological work) that the was not nearly old enough for natural selection to produce the range of organisms present on Earth. The Lord Kelvin version of the simulation is identical to the Darwinian one but stops after 10 generations, too soon for the evolutionary process to complete.'
     },
-    'owen': {'title': 'Intelligent Design',
-        'body': 'An explanation of Darwinian Evolution.'
+    'owen': {'title': 'Louis Agassiz: Intelligent Design',
+        'body': 'Agassiz was a Swiss-American biologist and geologist. He believed that each species was crafted for its particular niche by an intelligent designer and was one of Darwin’s biggest opponents. In his words, “It was a great step in the progress of science was ascertained that species have fixed characters, and that they do not change in the course of time.” The Agassiz mode of the simulation is therefore static; each sequence starts out perfect and undergoes no change. '
     },
     'irreducible': {'title': 'Modern Creationism and the Theory of Irreducible Complexity',
-        'body': 'An explanation of Darwinian Evolution.'
+        'body': 'Modern supporters of creationism have suggested that certain biological systems are “irreducibly complex” and could not have been formed gradually through natural selection. One commonly cited example is the flagella of bacteria (the molecular motor).  A proponent of irreducible complexity would argue that the complex interactions required to make the flagella work could not have arisen through random mutations. This view has been refuted by modern biology. The irreducible complexity version of the simulation starts out with the word “WEASEL” full evolved (because, the thinking goes, the word “WEASEL” is too complex to have developed by natural selection) and proceeds according to the Darwinian parameters from that point onward.'
     },
-    'random': {'title': 'Randomness',
-        'body': 'An explanation of Darwinian Evolution.'
+    'random': {'title': 'Random Seletion',
+        'body': 'One common misunderstanding of evolutionary thought invokes the sheer improbability of complex chemical structures forming by chance as evidence for an intelligent designer. This mode embraces the view of the intelligent design advocates by rejecting cumulative change, but doesn’t include a deity. The resulting world is somewhat dismal: random strings are generated ad infinitum. The probability that any one string will match the correct sequence is approximately 10^40.'
     },
-    'asa': {'title': 'Asa Gray',
-        'body': 'An explanation of Darwinian Evolution.'
+    'asa': {'title': 'Asa Gray: Guided Evolution',
+        'body': 'Asa Gray was one of the biggest early advocates for the theory of evolution in America. However, he could never quite go all the way in his acceptance of Darwin’s theory, maintaining the belief that an intelligent designer played some role in the process of human evolution. He wrote that he suspected  "variation has been led along certain beneficial lines," like a stream "along definite and useful lines of irrigation." In order to reflect Gray’s views, I added the concept of a “divine intervention” to the simulation. Like mutations, divine interventions occur during reproduction with a fixed probability. But instead of resulting in a random character, a divine intervention will always give the correct character from the target string. Increasing the probability of divine intervention makes the simulation converge on the target string faster as the “deity” provides a boost to random variation.'
     },
 };
 
