@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Dawkin's Weasel</title>
+    <title>Dawkins' Weasel</title>
 
     <!-- Bootstrap -->
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
-          <div><h3 class="centered-text">Dawkin's Weasel Program</h3></div>
+          <div><h3 class="centered-text">Dawkins' Weasel Program</h3></div>
         </br>
         <h4 class="subtitle centered-text">Simulating Historical Theories of Evolutionary Thought</h4>
         </div>
@@ -61,7 +61,7 @@
               <cite title="Source Title">The Blind Watchmaker (1986)</cite>
             </footer>
           </blockquote>
-          <p> Below is an implementation of Dawkin's Weasel program. The program begins by generating a number of random character sequences, or “organisms”. Next, each “organisms” pairs up with a randomly selected partner and “mates” with it. In this step, each character in the child organism has a 50% of being selected from its parent and a 50% chance of being selected from its second parent. The last step in determining the child character sequence is mutation. Each character in the child organism has a 1% chance (this is the default value, but it can be changed) of mutating into a random character.</p>
+          <p> Below is an implementation of Dawkins' Weasel program. The program begins by generating a number of random character sequences, or “organisms”. Next, each “organisms” pairs up with a randomly selected partner and “mates” with it. In this step, each character in the child organism has a 50% of being selected from its parent and a 50% chance of being selected from its second parent. The last step in determining the child character sequence is mutation. Each character in the child organism has a 1% chance (this is the default value, but it can be changed) of mutating into a random character.</p>
           <p>Two children are created for each “organism” (this value can also be changed by modifying the “birth rate” parameter). After all the offspring sequences have been created, natural selection occurs. Fitness is measured according to a simple function: the number of characters in the sequence that match up with the target sequence “METHINKS IT IS LIKE A WEASEL”. For example, the sequence “MMTHINKK IT IS LIKE A WEASEE” would have a fitness score of 25 because it has 25 out of 28 characters in common with the target sequence. The number of organisms is kept constant between generations by selecting those that are the most fit (the rest “die”). So if the population contains 100 organisms and the birth rate is set to 2, the first reproductive step of the simulation will produce 200 child organisms and the 100 most fit from those 200 will survive to the next generation. The new generation will then pair up, mate, etc. continuing the cycle. </p>
         </div>
       </div>
